@@ -19,6 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Improved boolean type inference to recognize `true`, `false`, `yes`, `no`, `y`, `n`, `t`, and `f` case-insensitively after stripping whitespace.
 
+### Fixed
+
+- Reject CSV files with duplicate column names with `TabulintError` (exit code 2) instead of silently dropping all but the last column.
+
 ## [0.1.0] - 2026-09-14
 
 Initial release.
