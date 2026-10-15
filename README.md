@@ -177,7 +177,7 @@ Main public names: `check_file`, `check_records`, `format_report`,
 
 | Format | Notes |
 | --- | --- |
-| `.csv` | UTF-8, configurable delimiter, first row is the header |
+| `.csv` | UTF-8, configurable delimiter, first row is the header; duplicate column names are rejected with exit code 2 |
 | `.json` | A single JSON array of objects; the CSV delimiter option is ignored |
 | `.jsonl` | One JSON object per line; blank lines are skipped |
 | `.ndjson` | Alias for `.jsonl` |
