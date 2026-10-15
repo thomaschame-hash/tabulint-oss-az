@@ -37,8 +37,10 @@ def test_quoted_field_containing_delimiter_still_loads(write):
 
 def test_quoted_field_containing_newline_still_loads(write):
     rows = load_csv(write("ok.csv", 'name,note\nAda,"line one\nline two"\n'))
-    assert rows == [{"name": "Ada", "note": "line one\nline two"}]
-
+    assert len(rows) == 1
+    assert rows[0]["name"] == "Ada"
+    # Windows may store the line break as "\r\n"; it must survive either way.
+    assert rows[0]["note"].splitlines() == ["line one", "line two"]
 
 def test_escaped_double_quote_still_loads(write):
     rows = load_csv(write("ok.csv", 'name,quote\nAda,"she said ""hi"""\n'))
